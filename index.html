@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+   	<head>
+      	<title>Tetris</title>
+      	<link href="styleSheet.css" rel="stylesheet" type="text/css">
+      	<link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+      	<meta name="viewport" content="width=device-width, initial-scale=1">
+   	</head>
+   	<body>
+      	<div class="title">
+         	<div id="title_middle">
+            	<span><h1><b><span id="t">T</span><span id="e">E</span><span id="t2">T</span><span id="r">R</span><span id="i">I</span><span id="s">S</span></b></h1></span>
+         	</div>
+      	</div>
+      	<p id="score"></p>
+      	<p id="level"></p>
+      	<div class="arena">
+         	<div id="leftColumn">
+            	<div id="left_divider1">
+               		<div id="hold_box">
+                  		<p id="hold_text">Hold Shape</p>
+                  		<canvas id="hold_field" width="150" height="150"></canvas>
+               		</div>
+            		<div id="game_btns">
+               			<button id="play_btn" onclick="play()">PLAY</button>
+            		</div>
+            		<div id="game_btns2">
+               			<button id="restart_btn" onclick="restart()">RESTART</button>
+            		</div>
+           	 		<div id="game_btns4">
+               			<button id="score_systemBtn" onclick="quit()" type="button">QUIT</button>
+            		</div>
+            		<div id="game_btns2">
+               			<button id="how_to_play_btn" onclick="location.href='index.html#controls'" type="button">HOW TO PLAY</button>
+            		</div>
+            		<div id="game_btns3">
+               			<button id="game_rulesBtn" onclick="location.href='index.html#rules_heading'" type="button">GAME RULES</button>
+            		</div>
+            		<div id="game_btns4">
+               			<button id="score_systemBtn" onclick="location.href='index.html#scoring_system'" type="button">SCORING SYSTEM</button>
+            		</div>
+            		<div id="game_btns6">
+            		</div>
+            	</div>
+        	</div>
+        	<div id="middleColumn">
+            	<center>
+               		<div id="gameField"> <canvas id="tetris" width="300" height="500"></canvas></div>
+            	</center>
+        	</div>
+        	<div id="rightColumn">
+            	<p id="next_shape_title">Next Shape</p>
+            	<div id="shape_line_up"> 
+               		<canvas id="static_field" width="150" height="250"></canvas>
+            	</div>
+        	</div>
+    	</div>
+      	<div id="rules">
+         	<p id="rules_heading">GAME RULES AND INSTRUCTIONS</p>
+         	<P>Align the different blocks as they drop down to complete rows</P>
+         	<p>Continue completing rows to erase rows and score more points, reaching new levels.</p>
+         	<p>Each new level speeds up the droping time for each block.</p>
+         	<p>Race against the drop time to prevent the blocks from piling up to the top of the arena</p>
+      	</div>
+      	<div id="controls">
+            <p id="control_heading">CONTROLS</p>
+            <p>UP ARROW KEY = ROTATE</p>
+            <P>LEFT ARROW KEY = MOVE LEFT</P>
+            <p>RIGHT ARROW KEY = MOVE RIGHT</p>
+            <P>DOWN ARROW KEY = MOVE DOWN</P>
+            <P>SPACE BAR KEY = DROP</P>
+            <p>Z KEY = HOLD CURRENT SHAPE</p>
+      	</div> 
+      	<div id="scoring_system">
+          	<p id="scoring_info">SCORING</p> 
+          	<p>scoring is based on the below for every block that lands</p>
+          	<p>Level 1: +37 + ((100 per row completed) x multiplier)</p>
+          	<p>Level 2: +53 + ((125 per row completed) x multiplier)</p>
+          	<p>Level 3: +78 + ((150 per row completed) x multiplier)</p>
+          	<p>Level 4: +105 + ((200 per row completed) x multiplier)</p>
+          	<p>Level 5: +139 + ((250 per row completed) x multiplier)</p>
+          	<p>Level 6: +170 + ((350 per row completed) x multiplier)</p>
+          	<p>Level 7: +250 + ((500 per row completed) x multiplier)</p>
+          	<p>* Multiplier = # of consecutive rows completed at once</p>
+      	</div>
+      	<audio id="drop_audio" hidden>
+         	<source src="audio/drop.mp3" type="audio/mpeg">
+      	</audio>
+      	<audio id="move_audio" hidden>
+         	<source src="audio/move_effect.mp3" type="audio/mpeg">
+      	</audio>
+      	<audio id="rotate_audio" hidden>
+         	<source src="audio/rotate_effect.mp3" type="audio/mpeg">
+      	</audio>
+      	<audio id="score_audio" hidden>
+         	<source src="audio/score_effect.mp3" type="audio/mpeg">
+      	</audio>
+      	<audio id="lose_effect" hidden>
+         	<source src="audio/end_game.mp3" type="audio/mpeg">
+      	</audio>
+      	<audio id="game_song" controls loop hidden>
+         	<source src="audio/main_song.mp3" type="audio/mpeg">
+      	</audio>
+      	<script src="tetris.js"></script>
+   	</body>
+   	<div class="footer">
+   	  	<div id="footer_leftColumn">
+      		<div id="tet_logo">
+         		<p><a href="https://tetris.com/" target="_blank" class="tetris_official"><img src="images/officialTetris.png" alt="Official Tetris Logo" title="Official Tetris" id="official_tetris_logo" width="64" height="90"></a></p>
+      		</div>
+      		<div id="not_sponsored">
+         		<p>This is not sponsored</p> 
+         		<p>nor is it a poduct by </p>
+         		<p>the official Tetris Game</p>
+         		<p>Company. Please click</p>
+         		<p>on the official Tetris logo</p>
+         		<p>to play the official game</p>
+      		</div>
+      	</div>
+      	<div id="footer_middleColumn">
+      		<center>
+         		<p>Tetris logos, Tetris theme song and Tetriminos are trademarks of Tetris Holding.</p>
+         		<p>CopyRight &copy;<i>, 2020.</i> All Rights Reserved by Tetris Holdings.</p>
+         		<p>Tetris Game Design by Alexey Pajitnov.</p>
+         		<p>This is not an official game produced by The Tetris Company and is</p>
+         		<p>not sponsored by Tetris Company</p>
+         	</center>
+      	</div>
+      	<div id="footer_rightColumn">
+      		<div id="instagram_logo">
+         		<p><a href="https://www.instagram.com/tetris_official/?hl=en" target="_blank" class="logo"><img src="images/instagramLogo.jpg" title="instagram" alt="instagram logo" id="insta" width="50" height="50"></a></p>
+      	</div>  
+    </div>
+</html>

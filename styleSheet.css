@@ -1,0 +1,346 @@
+.title h1
+{
+	font-family: 'Righteous', cursive;
+	font-size: 50px;
+}
+.title h1 #t
+{
+	color:red;
+}
+.title h1 #e
+{
+	color:#ff6600;
+}
+.title h1 #t2
+{
+	color:#ffcc00;
+}
+.title h1 #r
+{
+	color:rgb(0, 255, 0);
+}
+.title h1 #i
+{
+	color:rgb(0, 191, 255);
+}
+.title h1 #s
+{
+	color:rgb(153,50,204);
+}
+body
+{
+	padding:0;
+	margin:0;
+}
+.arena #leftColumn
+{
+	float:left;
+	width:33%;
+}
+.arena #leftColumn #left_divider1
+{
+	padding-left:50%;
+	padding-right:0;
+}
+.arena #leftColumn #left_divider2
+{
+	width:40%;
+	float:right;
+}
+#controls
+{
+	text-align:center;
+	padding-top:1%;
+	padding-bottom:15px;
+}
+#control_heading
+{
+	font-size:25px;
+	font-family: 'Righteous', cursive;
+}
+#controls p
+{
+	font-family: 'Righteous', cursive;
+}
+#hold_box
+{
+	padding-bottom:50px;
+	padding-left:35%;
+}
+#hold_text
+{
+	font-family: 'Righteous', cursive;
+	padding-left:20%;
+}
+#hold_field
+{
+	border-color:purple;
+	border-style:solid;
+	border-radius: 25px;
+	border-width: 7px;
+}
+.arena #leftColumn #game_btns
+{
+	padding-left:35%;
+}
+.arena #leftColumn #game_btns2
+{
+	padding-left:35%;
+	padding-top:10px;
+}
+.arena #leftColumn #game_btns3
+{
+	padding-left:35%;
+	padding-top:10px;
+}
+.arena #leftColumn #game_btns4
+{
+	padding-left:35%;
+	padding-top:10px;
+}
+.arena #leftColumn #game_btns6
+{
+	padding-left:80%;
+	padding-top:30px;
+}
+.play 
+{
+  	border: 0;
+  	background: transparent;
+  	box-sizing: border-box;
+  	width: 0;
+  	height: 37px;
+  	border-color: transparent transparent transparent #202020;
+  	transition: 100ms all ease;
+  	cursor: pointer;
+  	border-style: solid;
+  	border-width: 18.5px 0 18.5px 30px;
+}
+.paused 
+{
+  	border: 0;
+  	background: transparent;
+  	box-sizing: border-box;
+  	width: 0;
+  	height: 37px;
+  	border-color: transparent transparent transparent #202020;
+  	transition: 100ms all ease;
+  	cursor: pointer;
+  	border-style: double;
+  	border-width: 0px 0 0px 30px;
+}
+.play:hover, .paused:hover 
+{
+  	border-color: transparent transparent transparent #404040;
+}
+#play_btn
+{
+	border-radius: 7px;
+	font-family: 'Righteous', cursive;
+	background-color:rgb(30, 144, 255);
+	cursor:pointer;
+}
+#restart_btn
+{
+	border-radius: 7px;
+	font-family: 'Righteous', cursive;
+	background-color:rgb(30, 144, 255);
+	cursor:pointer;
+}
+#how_to_play_btn
+{
+	border-radius: 7px;
+	font-family: 'Righteous', cursive;
+	background-color:rgb(30, 144, 255);
+	cursor:pointer;
+}
+#game_rulesBtn
+{
+	border-radius: 7px;
+	font-family: 'Righteous', cursive;
+	background-color:rgb(30, 144, 255);
+	cursor:pointer;
+}
+#score_systemBtn
+{
+	border-radius: 7px;
+	font-family: 'Righteous', cursive;
+	background-color:rgb(30, 144, 255);
+	cursor:pointer;
+}
+#play_btn:hover, #restart_btn:hover, #stats_btn:hover, #game_rulesBtn:hover, #score_systemBtn:hover, #controls_systemBtn:hover, #back_btn:hover
+{
+	background-color: rgb(144,238,144);
+}
+.arena #middleColumn
+{
+	float:left;
+	padding-left:0;
+	padding-bottom:0;
+	margin-bottom:0;
+	width:34%;
+}
+.arena #middleColumn #gameField
+{
+	padding-top:30px;
+	padding-bottom:0;
+	margin-bottom:0;
+}
+.arena #rightColumn
+{
+	float:left;
+	padding-left:0;
+	margin-left:0;
+	width:33%;
+}
+.arena #rightColumn #next_shape_title
+{
+	font-family: 'Righteous', cursive;
+	padding-top:10px;
+	padding-bottom:10px;
+	margin:0;
+	padding-left:7%;
+}
+.arena #rightColumn #shape_line_up
+{
+	padding-top:0;
+	margin-top:0;
+	width:50%;
+	float:left;
+}
+.title
+{
+	text-align: center;
+	background: linear-gradient(to bottom, #0000ff 0%, #ff0066 100%);
+}
+.title h1
+{
+	margin-top:0;
+}
+.title #title_middle h1
+{
+	margin:0;
+	padding:0;
+}
+#score
+{
+	text-align:center;
+	padding:0;
+	margin:0;
+	font-weight:900;
+	font-size:20px;
+	padding-top:10px;
+}
+#level
+{
+	padding:0;
+	margin:0;
+	text-align:center;
+	font-weight:900;
+	font-size:20px;
+	padding-top:5px;
+}
+#level p
+{
+	padding-bottom:0;
+	margin-bottom:0;
+}
+#tetris
+{
+	padding-left:0;
+	border-color:red;
+	border-style:double;
+	border-radius: 5px;
+	border-width: 7px;
+	margin-left:0;
+	margin-right:0;
+	padding-right:0;
+}
+#static_field
+{
+	padding-left:0;
+	border-color:rgb(0, 0, 205);
+	border-style:solid;
+	border-radius: 35px;
+	border-width: 7px;
+}
+#rules
+{
+	padding-top:100px;
+	padding-bottom:50px;
+	clear:left;
+	text-align:center;
+}
+#rules p
+{
+	font-family: 'Righteous', cursive;
+}
+#rules #rules_heading
+{
+	font-size:30px;
+}
+#scoring_system
+{
+	padding-top:1%;
+	padding-bottom:50px;
+	text-align:center;
+}
+#scoring_system p
+{
+	font-family: 'Righteous', cursive;
+}
+#scoring_system #scoring_info
+{
+	font-size:30px;
+}
+.footer
+{   
+	clear:left;
+	padding-bottom:200px;
+	padding-top:25px;
+	margin: 0;
+	background-color: black;
+	width:100%;
+}
+.footer p
+{
+	color:white;
+	margin-bottom:0;
+	line-height: 0.8;
+}
+#footer_leftColumn
+{
+	width:33%;
+	float:left;
+}
+#footer_middleColumn
+{
+	width:34%;
+	float:left;
+}
+#footer_rightColumn
+{
+	width:33%;
+	float:right;
+}
+#tet_logo
+{
+	float:left;
+	width:20%;
+	padding-left:10%;
+}
+.footer #not_sponsored
+{
+	float:right;
+	width:40%;
+	padding-right:30%;
+}
+.footer #not_sponsored p
+{
+	font-size: 13px;
+}
+
+#instagram_logo
+{
+	padding-left:80%;
+}
