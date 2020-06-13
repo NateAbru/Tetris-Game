@@ -168,7 +168,14 @@ body
 	background-color:rgb(30, 144, 255);
 	cursor:pointer;
 }
-#play_btn:hover, #restart_btn:hover, #stats_btn:hover, #game_rulesBtn:hover, #score_systemBtn:hover, #controls_systemBtn:hover, #back_btn:hover
+#quit_btn
+{
+	border-radius: 7px;
+	font-family: 'Righteous', cursive;
+	background-color:rgb(30, 144, 255);
+	cursor:pointer;
+}
+#play_btn:hover, #restart_btn:hover, #quit_btn:hover, #how_to_play_btn:hover, #game_rulesBtn:hover, #score_systemBtn:hover
 {
 	background-color: rgb(144,238,144);
 }
