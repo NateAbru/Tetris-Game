@@ -186,6 +186,7 @@ body
 	padding-bottom:0;
 	margin-bottom:0;
 	width:34%;
+	text-align:center;
 }
 .arena #middleColumn #gameField
 {
@@ -324,6 +325,7 @@ body
 {
 	width:34%;
 	float:left;
+	text-align:center;
 }
 #footer_rightColumn
 {
