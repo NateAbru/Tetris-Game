@@ -246,6 +246,7 @@ function draw()
 	{	   	
     	drawGrid(grid, {x:0, y:0});
     	drawGrid(player.matrix, player.pos);
+      drawGrid(ghost_block_func(), ghost_coordinates());
     	drawStaticGrid(static_grid, {x:0, y:0});
     	drawHoldGrid(hold_grid, {x:0, y:0});
     	if(on_hold == true) drawHoldGrid(shape_on_hold, {x:1, y:1});
@@ -298,75 +299,93 @@ function drawGrid(matrix, offset)
 {
    matrix.forEach((row, y) => {
    	   row.forEach((value, x) => {
-   	   	if(value === 1) {
+   	   	if(value === 1) 
+   	   	{
    	   		context.fillStyle = "#cc0000";
    	   		context.fillRect(x + offset.x, y + offset.y, 1, 1);
-   	   		context.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   			context.lineWidth = borderSize / 20;
-   			context.strokeStyle = 'rgb(192, 192, 192)';
+   			  context.strokeStyle = 'rgb(192, 192, 192)';
+          context.lineWidth = borderSize / 20;
+          context.lineJoin = "round";
+          context.strokeRect(x + offset.x, y + offset.y, 1, 1);
    	   		
    	   	}
    	   	else if(value === 2)
    	   	{
    	   		context.fillStyle = "rgb(0, 63, 235)"; //blue
    	   		context.fillRect(x + offset.x, y + offset.y, 1, 1);
-   	   		context.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   			context.lineWidth = borderSize / 20;
-   			context.strokeStyle = 'rgb(192, 192, 192)';
-   	   		
+   			  context.strokeStyle = 'rgb(192, 192, 192)';
+          context.lineWidth = borderSize / 20;
+          context.lineJoin = "round";
+          context.strokeRect(x + offset.x, y + offset.y, 1, 1);
    	   	}
    	   	else if(value === 3)
    	   	{
    	   		context.fillStyle = "#ffcc00"; //yellow
    	   		context.fillRect(x + offset.x, y + offset.y, 1, 1);
-   	   		context.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   			context.lineWidth = borderSize / 20;
-   			context.strokeStyle = 'rgb(192, 192, 192)';
-   	   		
+   			  context.strokeStyle = 'rgb(192, 192, 192)';
+          context.lineWidth = borderSize / 20;
+          context.lineJoin = "round";
+          context.strokeRect(x + offset.x, y + offset.y, 1, 1);
    	   	}
    	   	else if(value === 4)
    	   	{
    	   		//context.fillStyle = "#33cc33"; //green
    	   		context.fillStyle = "rgb(0, 255, 0)";//lime green
    	   		context.fillRect(x + offset.x, y + offset.y, 1, 1);
+   			  context.strokeStyle = "rgb(192, 192, 192)";
+   			  context.lineWidth = borderSize / 20;
+          context.lineJoin = "round";
    	   		context.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   			context.strokeStyle = "rgb(192, 192, 192)";
-   			context.lineWidth = borderSize / 20;
-   	   		
    	   	}
    	   	else if(value === 5) 
    	   	{
+   	   		context.lineJoin = "round";
    	   		context.fillStyle = "rgb(124, 17, 178)"; //purple
    	   		context.fillRect(x + offset.x, y + offset.y, 1, 1);
-   	   		context.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   			context.lineWidth = borderSize / 20;
-   			context.strokeStyle = 'rgb(192, 192, 192)';
-   	   		
+   			  context.strokeStyle = 'rgb(192, 192, 192)';
+          context.lineWidth = borderSize / 20;
+          context.lineJoin = "round";
+          context.strokeRect(x + offset.x, y + offset.y, 1, 1);
    	   	}
    	   	else if(value === 6)
    	   	{
    	   		context.fillStyle = "#ff6600"; //orange
    	   		context.fillRect(x + offset.x, y + offset.y, 1, 1);
-   	   		context.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   	   		context.lineWidth = borderSize / 20;
    	   		context.strokeStyle = 'rgb(192, 192, 192)';
+          context.lineWidth = borderSize / 20;
+          context.lineJoin = "round";
+   	   		context.strokeRect(x + offset.x, y + offset.y, 1, 1);
    	   	}
    	   	else if(value === 7)
    	   	{
    	   		context.fillStyle = "rgb(0, 191, 255)"; //light blue
    	   		context.fillRect(x + offset.x, y + offset.y, 1, 1);
-   	   		context.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   			context.lineWidth = borderSize / 20;
-   			context.strokeStyle = 'rgb(192, 192, 192)';
+   			  context.strokeStyle = 'rgb(192, 192, 192)';
+          context.lineWidth = borderSize / 20;
+          context.lineJoin = "round";
+          context.strokeRect(x + offset.x, y + offset.y, 1, 1);
+
    	   		
    	   	}
-   	   	else if((matrix != player.matrix) && (value === 0))
+        else if(value == 10)
+        {
+          if(matrix != player.matrix && matrix != grid && matrix.length < 5)
+          {
+            context.strokeStyle = "rgb(255,255,255)"; //white
+            context.lineWidth = borderSize / 6;
+            context.lineJoin = "round";
+            context.strokeRect(x + offset.x, y + offset.y, 1, 1);
+          }
+          
+        }
+   	   	else if((matrix != player.matrix) && (value === 0) && (matrix.length > 4))
    	   	{
    	   		context.fillStyle = 'rgb(0, 0, 0)';
    	   		context.fillRect(x, y, 1, 1);
-   			context.strokeRect(x, y, 1, 1);
-   			context.lineWidth = borderSize / 20;
-   			context.strokeStyle = 'rgb(192, 192, 192)';
+   			  context.strokeStyle = 'rgb(192, 192, 192)';
+          context.lineWidth = borderSize / 60;
+          context.lineJoin = "round";
+          context.strokeRect(x, y, 1, 1);
    	   	}
    	   });
    });
@@ -379,64 +398,60 @@ function drawStaticGrid(matrix, offset)
    	   	if(value === 1) {
    	   		context2.fillStyle = "#cc0000";
    	   		context2.fillRect(x + offset.x, y + offset.y, 1, 1);
-   	   		context2.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   			context2.lineWidth = borderSize / 20;
-   			context2.strokeStyle = 'rgb(192, 192, 192)';
+   			  context2.lineWidth = borderSize / 20;
+   			  context2.strokeStyle = 'rgb(192, 192, 192)';
+          context2.strokeRect(x + offset.x, y + offset.y, 1, 1);
    	   		
    	   	}
    	   	else if(value === 2)
    	   	{
    	   		context2.fillStyle = "rgb(0, 63, 235)"; //blue
    	   		context2.fillRect(x + offset.x, y + offset.y, 1, 1);
-   	   		context2.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   			context2.lineWidth = borderSize / 20;
-   			context2.strokeStyle = 'rgb(192, 192, 192)';
+   			  context2.lineWidth = borderSize / 20;
+   			  context2.strokeStyle = 'rgb(192, 192, 192)';
+          context2.strokeRect(x + offset.x, y + offset.y, 1, 1);
    	   		
    	   	}
    	   	else if(value === 3)
    	   	{
    	   		context2.fillStyle = "#ffcc00"; //yellow
    	   		context2.fillRect(x + offset.x, y + offset.y, 1, 1);
+   			  context2.lineWidth = borderSize / 20;
+   			  context2.strokeStyle = 'rgb(192, 192, 192)';
    	   		context2.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   			context2.lineWidth = borderSize / 20;
-   			context2.strokeStyle = 'rgb(192, 192, 192)';
-   	   		
    	   	}
    	   	else if(value === 4)
    	   	{
    	   		//context2.fillStyle = "#33cc33"; //green
    	   		context2.fillStyle = "rgb(0, 255, 0)";//lime green
    	   		context2.fillRect(x + offset.x, y + offset.y, 1, 1);
-   	   		context2.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   			context2.strokeStyle = "rgb(192, 192, 192)";
-   			context2.lineWidth = borderSize / 20;
-   	   		
+   			  context2.strokeStyle = "rgb(192, 192, 192)";
+   			  context2.lineWidth = borderSize / 20;
+          context2.strokeRect(x + offset.x, y + offset.y, 1, 1);
    	   	}
    	   	else if(value === 5) 
    	   	{
    	   		context2.fillStyle = "rgb(124, 17, 178)"; //purple
    	   		context2.fillRect(x + offset.x, y + offset.y, 1, 1);
+   			  context2.lineWidth = borderSize / 20;
+   			  context2.strokeStyle = 'rgb(192, 192, 192)';
    	   		context2.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   			context2.lineWidth = borderSize / 20;
-   			context2.strokeStyle = 'rgb(192, 192, 192)';
-   	   		
    	   	}
    	   	else if(value === 6)
    	   	{
    	   		context2.fillStyle = "#ff6600"; //orange
    	   		context2.fillRect(x + offset.x, y + offset.y, 1, 1);
-   	   		context2.strokeRect(x + offset.x, y + offset.y, 1, 1);
    	   		context2.lineWidth = borderSize / 20;
    	   		context2.strokeStyle = 'rgb(192, 192, 192)';
+          context2.strokeRect(x + offset.x, y + offset.y, 1, 1);
    	   	}
    	   	else if(value === 7)
    	   	{
    	   		context2.fillStyle = "rgb(0, 191, 255)"; //light blue
    	   		context2.fillRect(x + offset.x, y + offset.y, 1, 1);
+   			  context2.lineWidth = borderSize / 20;
+   			  context2.strokeStyle = 'rgb(192, 192, 192)';
    	   		context2.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   			context2.lineWidth = borderSize / 20;
-   			context2.strokeStyle = 'rgb(192, 192, 192)';
-   	   		
    	   	}
    	   	else if(matrix.length > 4)
    	   	{
@@ -453,64 +468,58 @@ function drawHoldGrid(matrix, offset)
    	   	if(value === 1) {
    	   		context3.fillStyle = "#cc0000";
    	   		context3.fillRect(x + offset.x, y + offset.y, 1, 1);
+   			  context3.lineWidth = borderSize / 20;
+   			  context3.strokeStyle = 'rgb(192, 192, 192)';
    	   		context3.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   			context3.lineWidth = borderSize / 20;
-   			context3.strokeStyle = 'rgb(192, 192, 192)';
-   	   		
    	   	}
    	   	else if(value === 2)
    	   	{
    	   		context3.fillStyle = "rgb(0, 63, 235)"; //blue
    	   		context3.fillRect(x + offset.x, y + offset.y, 1, 1);
+   			  context3.lineWidth = borderSize / 20;
+   			  context3.strokeStyle = 'rgb(192, 192, 192)';
    	   		context3.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   			context3.lineWidth = borderSize / 20;
-   			context3.strokeStyle = 'rgb(192, 192, 192)';
-   	   		
    	   	}
    	   	else if(value === 3)
    	   	{
    	   		context3.fillStyle = "#ffcc00"; //yellow
    	   		context3.fillRect(x + offset.x, y + offset.y, 1, 1);
+   			  context3.lineWidth = borderSize / 20;
+   			  context3.strokeStyle = 'rgb(192, 192, 192)';
    	   		context3.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   			context3.lineWidth = borderSize / 20;
-   			context3.strokeStyle = 'rgb(192, 192, 192)';
-   	   		
    	   	}
    	   	else if(value === 4)
    	   	{
    	   		//context2.fillStyle = "#33cc33"; //green
    	   		context3.fillStyle = "rgb(0, 255, 0)";//lime green
    	   		context3.fillRect(x + offset.x, y + offset.y, 1, 1);
+   			  context3.strokeStyle = "rgb(192, 192, 192)";
+   			  context3.lineWidth = borderSize / 20;
    	   		context3.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   			context3.strokeStyle = "rgb(192, 192, 192)";
-   			context3.lineWidth = borderSize / 20;
-   	   		
    	   	}
    	   	else if(value === 5) 
    	   	{
    	   		context3.fillStyle = "rgb(124, 17, 178)"; //purple
    	   		context3.fillRect(x + offset.x, y + offset.y, 1, 1);
+   			  context3.lineWidth = borderSize / 20;
+   			  context3.strokeStyle = 'rgb(192, 192, 192)';
    	   		context3.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   			context3.lineWidth = borderSize / 20;
-   			context3.strokeStyle = 'rgb(192, 192, 192)';
-   	   		
    	   	}
    	   	else if(value === 6)
    	   	{
    	   		context3.fillStyle = "#ff6600"; //orange
    	   		context3.fillRect(x + offset.x, y + offset.y, 1, 1);
-   	   		context3.strokeRect(x + offset.x, y + offset.y, 1, 1);
    	   		context3.lineWidth = borderSize / 20;
    	   		context3.strokeStyle = 'rgb(192, 192, 192)';
+          context3.strokeRect(x + offset.x, y + offset.y, 1, 1);
    	   	}
    	   	else if(value === 7)
    	   	{
    	   		context3.fillStyle = "rgb(0, 191, 255)"; //light blue
    	   		context3.fillRect(x + offset.x, y + offset.y, 1, 1);
-   	   		context3.strokeRect(x + offset.x, y + offset.y, 1, 1);
-   			context3.lineWidth = borderSize / 20;
-   			context3.strokeStyle = 'rgb(192, 192, 192)';
-   	   		
+   			  context3.lineWidth = borderSize / 20;
+   			  context3.strokeStyle = 'rgb(192, 192, 192)';
+          context3.strokeRect(x + offset.x, y + offset.y, 1, 1);
    	   	}
    	   	else if(matrix.length > 4)
    	   	{
@@ -677,6 +686,40 @@ function maxDrop()
 		}
 		player.pos.y--;
 	}
+}
+
+//functions to create the ghost piece
+function ghost_block_func()
+{
+  const ghost = _.cloneDeep(player);
+  for(let vy = 0; vy < ghost.matrix.length; vy++)
+  {
+    for(let vx = 0; vx < ghost.matrix.length; vx++)
+    {
+      if(ghost.matrix[vy][vx] != 0) ghost.matrix[vy][vx] = 10;
+    }
+  }
+  return ghost.matrix;
+}
+
+function ghost_coordinates()
+{
+  let ghost_matrix = player.matrix;
+  let gx = player.pos.x;
+  let gy = player.pos.y;
+  const ghost = {
+    pos: {x: gx, y: gy},
+    matrix: ghost_matrix,
+  };
+  if(ghost.pos.y >= 0)
+  {
+    while(!colliderFunc(grid, ghost))
+    {
+      ghost.pos.y++;
+    }
+    ghost.pos.y--;
+  }
+  return ghost.pos;
 }
 
 function colliderFunc(grid, player)
