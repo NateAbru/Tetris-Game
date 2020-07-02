@@ -57,6 +57,307 @@ const grid = createMatrix(12, 20);
 const static_grid = createMatrix(6,10);
 const hold_grid = createMatrix(6,6);
 
+function mouse_button(e)
+{
+  var click_value = e.buttons;
+  if(click_value == 1)
+  {
+    maxDrop();
+  }
+  else if(click_value == 2)
+  {
+    shapeRotate();
+        if(colliderFunc(grid, player)) antiRotateFunc();
+    //rotateAudio.play();
+    e.preventDefault();
+  }
+}
+
+document.getElementById("tetris").addEventListener("mousemove", function(event){
+  mouse_move(event);
+});
+function mouse_move(e)
+{
+  let x = e.clientX;
+  let y = e.clientX;
+  if(x > 610 && x < 631)
+  {
+    player.pos.x = 0;
+    let value_found = false;
+    for(let c_val = 0; c_val < player.matrix.length; c_val++)
+    {
+      let column_value_count = 0;
+      for(let r_val = 0; r_val < player.matrix.length; r_val++)
+      {
+        if(player.matrix[r_val][c_val] != 0) 
+        {
+          column_value_count++;
+          value_found = true;
+          break;
+        }
+      }
+      if(value_found == true) break;
+      else if(column_value_count == 0 && value_found == false) 
+      {
+        wallLimit(-1);
+      }
+    }
+  }
+  if(x > 635 && x < 656)
+  {
+    player.pos.x = 1;
+     let value_found = false;
+    for(let c_val = 0; c_val < player.matrix.length; c_val++)
+    {
+      let column_value_count = 0;
+      for(let r_val = 0; r_val < player.matrix.length; r_val++)
+      {
+        if(player.matrix[r_val][c_val] != 0) 
+        {
+          column_value_count++;
+          value_found = true;
+          break;
+        }
+      }
+      if(value_found == true) break;
+      else if(column_value_count == 0 && value_found == false) 
+      {
+        wallLimit(-1);
+      }
+    }
+  }
+  if(x > 660 && x < 681)
+  {
+    player.pos.x = 2;
+     let value_found = false;
+    for(let c_val = 0; c_val < player.matrix.length; c_val++)
+    {
+      let column_value_count = 0;
+      for(let r_val = 0; r_val < player.matrix.length; r_val++)
+      {
+        if(player.matrix[r_val][c_val] != 0) 
+        {
+          column_value_count++;
+          value_found = true;
+          break;
+        }
+      }
+      if(value_found == true) break;
+      else if(column_value_count == 0 && value_found == false) 
+      {
+        wallLimit(-1);
+      }
+    }
+  }
+  if(x > 685 && x < 706)
+  {
+    player.pos.x = 3;
+     let value_found = false;
+    for(let c_val = 0; c_val < player.matrix.length; c_val++)
+    {
+      let column_value_count = 0;
+      for(let r_val = 0; r_val < player.matrix.length; r_val++)
+      {
+        if(player.matrix[r_val][c_val] != 0) 
+        {
+          column_value_count++;
+          value_found = true;
+          break;
+        }
+      }
+      if(value_found == true) break;
+      else if(column_value_count == 0 && value_found == false) 
+      {
+        wallLimit(-1);
+      }
+    }
+  }
+  if(x > 710 && x < 731)
+  {
+    player.pos.x = 4;
+     let value_found = false;
+    for(let c_val = 0; c_val < player.matrix.length; c_val++)
+    {
+      let column_value_count = 0;
+      for(let r_val = 0; r_val < player.matrix.length; r_val++)
+      {
+        if(player.matrix[r_val][c_val] != 0) 
+        {
+          column_value_count++;
+          value_found = true;
+          break;
+        }
+      }
+      if(value_found == true) break;
+      else if(column_value_count == 0 && value_found == false) 
+      {
+        wallLimit(-1);
+      }
+    }
+  }
+  if(x > 735 && x < 756)
+  {
+    player.pos.x = 5;
+    let value_found = false;
+    for(let c_val = 0; c_val < player.matrix.length; c_val++)
+    {
+      let column_value_count = 0;
+      for(let r_val = 0; r_val < player.matrix.length; r_val++)
+      {
+        if(player.matrix[r_val][c_val] != 0) 
+        {
+          column_value_count++;
+          value_found = true;
+          break;
+        }
+      }
+      if(value_found == true) break;
+      else if(column_value_count == 0 && value_found == false) 
+      {
+        wallLimit(-1);
+      }
+    }
+  }
+  if(x > 760 && x < 781)
+  {
+    player.pos.x = 6;
+     let value_found = false;
+    for(let c_val = 0; c_val < player.matrix.length; c_val++)
+    {
+      let column_value_count = 0;
+      for(let r_val = 0; r_val < player.matrix.length; r_val++)
+      {
+        if(player.matrix[r_val][c_val] != 0) 
+        {
+          column_value_count++;
+          value_found = true;
+          break;
+        }
+      }
+      if(value_found == true) break;
+      else if(column_value_count == 0 && value_found == false) 
+      {
+        wallLimit(-1);
+      }
+    }
+  } 
+  if(x > 785 && x < 806)
+  {
+    player.pos.x = 7;
+     let value_found = false;
+    for(let c_val = 0; c_val < player.matrix.length; c_val++)
+    {
+      let column_value_count = 0;
+      for(let r_val = 0; r_val < player.matrix.length; r_val++)
+      {
+        if(player.matrix[r_val][c_val] != 0) 
+        {
+          column_value_count++;
+          value_found = true;
+          break;
+        }
+      }
+      if(value_found == true) break;
+      else if(column_value_count == 0 && value_found == false) 
+      {
+        wallLimit(-1);
+      }
+    }
+  } 
+  if(x > 810 && x < 831)
+  {
+    player.pos.x = 8;
+     let value_found = false;
+    for(let c_val = 0; c_val < player.matrix.length; c_val++)
+    {
+      let column_value_count = 0;
+      for(let r_val = 0; r_val < player.matrix.length; r_val++)
+      {
+        if(player.matrix[r_val][c_val] != 0) 
+        {
+          column_value_count++;
+          value_found = true;
+          break;
+        }
+      }
+      if(value_found == true) break;
+      else if(column_value_count == 0 && value_found == false) 
+      {
+        wallLimit(-1);
+      }
+    }
+  } 
+  if(x > 835 && x < 856)
+  {
+    player.pos.x = 9;
+     let value_found = false;
+    for(let c_val = 0; c_val < player.matrix.length; c_val++)
+    {
+      let column_value_count = 0;
+      for(let r_val = 0; r_val < player.matrix.length; r_val++)
+      {
+        if(player.matrix[r_val][c_val] != 0) 
+        {
+          column_value_count++;
+          value_found = true;
+          break;
+        }
+      }
+      if(value_found == true) break;
+      else if(column_value_count == 0 && value_found == false) 
+      {
+        wallLimit(-1);
+      }
+    }
+  } 
+  if(x > 860 && x < 881)
+  {
+    player.pos.x = 10;
+     let value_found = false;
+    for(let c_val = 0; c_val < player.matrix.length; c_val++)
+    {
+      let column_value_count = 0;
+      for(let r_val = 0; r_val < player.matrix.length; r_val++)
+      {
+        if(player.matrix[r_val][c_val] != 0) 
+        {
+          column_value_count++;
+          value_found = true;
+          break;
+        }
+      }
+      if(value_found == true) break;
+      else if(column_value_count == 0 && value_found == false) 
+      {
+        wallLimit(-1);
+      }
+    }
+  } 
+  if(x > 885 && x < 906)
+  {
+    player.pos.x = 11;
+     let value_found = false;
+    for(let c_val = 0; c_val < player.matrix.length; c_val++)
+    {
+      let column_value_count = 0;
+      for(let r_val = 0; r_val < player.matrix.length; r_val++)
+      {
+        if(player.matrix[r_val][c_val] != 0) 
+        {
+          column_value_count++;
+          value_found = true;
+          break;
+        }
+      }
+      if(value_found == true) break;
+      else if(column_value_count == 0 && value_found == false) 
+      {
+        wallLimit(1);
+      }
+    }
+  } 
+}
+
 //function to quit the game when it has started. Sets the grid back to idle.
 function quit()
 {
