@@ -974,19 +974,24 @@ function shapeRotate()
 	}	
 }
 
+let max_drop_used = false;
+let c_dropTime = 0;
 /* function to make the shape drop all the way to the bottom of the grid
  * when user hits the space bar
  */
 function maxDrop()
 {
-	if(player.pos.y >= 1)
-	{
-		while(!colliderFunc(grid, player))
-		{
-			player.pos.y++;
-		}
-		player.pos.y--;
-	}
+  if(player.pos.y >= 1)
+  {
+    while(!colliderFunc(grid, player))
+    {
+      player.pos.y++;
+    }
+    player.pos.y--;
+    c_dropTime = dropInterval;
+    dropInterval = 0;
+    max_drop_used = true;
+  }
 }
 
 //functions to create the ghost piece
@@ -1149,6 +1154,11 @@ function playerDrop()
 				player.pos.x = 5;
 				shape_switch = 0;
 				shapeReset();
+        if(max_drop_used)
+        {
+          dropInterval = c_dropTime;
+          max_drop_used = false;
+        }
 			}
 		}
  		dropCounter = 0;
